@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>PlethoMove — Large File Transfer</title>
+<meta name="description" content="Reliable large file transfer between iPhone and Mac."/>
+
+<style>
+
+:root{
+--bg:#0b1020;
+--card:rgba(255,255,255,0.06);
+--text:#eef2ff;
+--muted:#b7c0e0;
+--accent:#6ea8ff;
+--accent2:#9c7bff;
+--line:rgba(255,255,255,0.10);
+--shadow:0 18px 40px rgba(0,0,0,0.28);
+}
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif;
+background:linear-gradient(180deg,var(--bg) 0%,#111936 100%);
+color:var(--text);
+}
+
+.wrap{
+max-width:1120px;
+margin:0 auto;
+padding:28px 20px 70px;
+}
+
+a{color:#a9c8ff;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.topbar{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:30px;
+}
+
+.topbar img{
+width:54px;
+height:54px;
+border-radius:14px;
+box-shadow:var(--shadow);
+background:white;
+}
+
+.brand{
+font-size:24px;
+font-weight:700;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:28px;
+align-items:center;
+margin-bottom:38px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 12px;
+border:1px solid var(--line);
+border-radius:999px;
+color:var(--muted);
+font-size:14px;
+margin-bottom:16px;
+background:rgba(255,255,255,0.04);
+}
+
+h1{
+font-size:clamp(34px,6vw,58px);
+line-height:1.02;
+margin:0 0 14px;
+}
+
+.lead{
+font-size:19px;
+line-height:1.65;
+color:var(--muted);
+max-width:700px;
+margin:0 0 22px;
+}
+
+.cta{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:13px 18px;
+border-radius:12px;
+font-weight:600;
+border:1px solid transparent;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:white;
+box-shadow:var(--shadow);
+}
+
+.btn-secondary{
+border-color:var(--line);
+color:var(--text);
+background:rgba(255,255,255,0.04);
+}
+
+.hero-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+padding:22px;
+}
+
+.hero-card video{
+width:100%;
+border-radius:16px;
+background:black;
+}
+
+.section{margin-top:34px;}
+
+.section h2{
+font-size:30px;
+margin-bottom:12px;
+}
+
+.section p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+margin-top:16px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+padding:18px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+margin-top:24px;
+}
+
+.shot{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+overflow:hidden;
+}
+
+.shot img{
+width:100%;
+display:block;
+cursor:pointer;
+}
+
+.shot-label{
+font-size:20px;
+color:#9ec3ff;
+text-align:center;
+padding:14px;
+}
+
+@media(max-width:900px){
+.gallery{
+grid-template-columns:1fr;
+}
+.hero{
+grid-template-columns:1fr;
+}
+}
+
+.support-box{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+padding:20px;
+margin-top:16px;
+}
+
+.footer{
+margin-top:46px;
+padding-top:22px;
+border-top:1px solid var(--line);
+color:var(--muted);
+font-size:14px;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+display:none;
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+}
+
+.lightbox img{
+display:block;
+margin:auto;
+max-width:90%;
+max-height:90%;
+margin-top:4%;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+.nav{
+position:absolute;
+top:50%;
+font-size:60px;
+color:white;
+cursor:pointer;
+user-select:none;
+padding:10px;
+}
+
+.prev{left:20px;}
+.next{right:20px;}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="topbar">
+<img src="icon_1024.png">
+<div class="brand">PlethoMove</div>
+</div>
+
+<section class="hero">
+
+<div>
+<div class="badge">PlethoMove for iPhone and Mac</div>
+
+<h1>Reliable large file transfer over the air.</h1>
+
+<p class="lead">
+PlethoMove helps you move large batches of photos and videos between iPhone and Mac with visibility, control, and peace of mind.
+</p>
+
+<div class="cta">
+<a class="btn btn-primary" href="#preview">Watch Preview</a>
+<a class="btn btn-secondary" href="#screenshots">View Screenshots</a>
+<a class="btn btn-secondary" href="privacy.html">Privacy Policy</a>
+</div>
+</div>
+
+<div class="hero-card">
+<video controls poster="short01.png">
+<source src="plethomove_preview_appstore.mp4" type="video/mp4">
+</video>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Why PlethoMove</h2>
+
+<p>
+PlethoMove is built for people who want a dependable way to move large amounts of media between iPhone and Mac. It gives you visibility before starting, clear progress during transfer, and a smooth path for backing up photo and video libraries over your local network.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Built for large transfers</h3>
+<p>Select many photos and videos at once and let long transfers run reliably.</p>
+</div>
+
+<div class="card">
+<h3>See time estimates early</h3>
+<p>View export time and transfer time before starting.</p>
+</div>
+
+<div class="card">
+<h3>Smart storage protection</h3>
+<p>Avoid failed transfers when iPhone storage is low.</p>
+</div>
+
+<div class="card">
+<h3>Perfect for backup</h3>
+<p>Back up your iPhone photo library to Mac easily.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="preview">
+
+<h2>App Preview</h2>
+
+<div class="hero-card">
+<video controls poster="short01.png">
+<source src="plethomove_preview_appstore.mp4" type="video/mp4">
+</video>
+</div>
+
+</section>
+
+<section class="section" id="screenshots">
+
+<h2>Screenshots</h2>
+
+<div class="gallery">
+
+<div class="shot">
+<img src="short01.png" class="gallery-img">
+<div class="shot-label">PlethoMove(iOS) Connect</div>
+</div>
+
+<div class="shot">
+<img src="short02.png" class="gallery-img">
+<div class="shot-label">PlethoMove(macOS) Connect</div>
+</div>
+
+<div class="shot">
+<img src="short03.png" class="gallery-img">
+<div class="shot-label">Select Photos and Videos</div>
+</div>
+
+<div class="shot">
+<img src="short04.png" class="gallery-img">
+<div class="shot-label">Selection Features</div>
+</div>
+
+<div class="shot">
+<img src="short05.png" class="gallery-img">
+<div class="shot-label">Mac Accept Transfer</div>
+</div>
+
+<div class="shot">
+<img src="short06.png" class="gallery-img">
+<div class="shot-label">Transfer Progress Monitoring</div>
+</div>
+
+<div class="shot">
+<img src="short07.png" class="gallery-img">
+<div class="shot-label">Mac Transfer Progress</div>
+</div>
+
+<div class="shot">
+<img src="short08.png" class="gallery-img">
+<div class="shot-label">Transfer Complete</div>
+</div>
+
+<div class="shot">
+<img src="short09.png" class="gallery-img">
+<div class="shot-label">Files in Documents Folder</div>
+</div>
+
+<div class="shot">
+<img src="short10.png" class="gallery-img">
+<div class="shot-label">Files Ready for Backup</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2>Support</h2>
+
+<div class="support-box">
+<p>
+Questions or feedback:
+<a href="mailto:neuras.dev@gmail.com">support@plethomove.app</a>
+</p>
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 PlethoMove · <a href="privacy.html">Privacy Policy</a>
+</div>
+
+</div>
+
+<div id="lightbox" class="lightbox">
+
+<span class="close">&times;</span>
+<span class="nav prev">&#10094;</span>
+<img id="lightbox-img">
+<span class="nav next">&#10095;</span>
+
+</div>
+
+<script>
+
+const images=document.querySelectorAll(".gallery-img")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+let current=0
+
+images.forEach((img,i)=>{
+img.onclick=()=>{
+current=i
+show()
+}
+})
+
+function show(){
+lightbox.style.display="block"
+lightboxImg.src=images[current].src
+}
+
+document.querySelector(".close").onclick=()=>{
+lightbox.style.display="none"
+}
+
+document.querySelector(".prev").onclick=(e)=>{
+e.stopPropagation()
+current=(current-1+images.length)%images.length
+show()
+}
+
+document.querySelector(".next").onclick=(e)=>{
+e.stopPropagation()
+current=(current+1)%images.length
+show()
+}
+
+document.addEventListener("keydown",e=>{
+if(lightbox.style.display==="block"){
+if(e.key==="Escape") lightbox.style.display="none"
+if(e.key==="ArrowLeft"){current=(current-1+images.length)%images.length;show()}
+if(e.key==="ArrowRight"){current=(current+1)%images.length;show()}
+}
+})
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "logo": "icon_1024.png",
+  "preview_video_required_name": "plethomove_preview_appstore.mp4",
+  "screenshots": [
+    {
+      "website_name": "shot01.png",
+      "current_source": "01.png"
+    },
+    {
+      "website_name": "shot02.png",
+      "current_source": "02.PNG"
+    },
+    {
+      "website_name": "shot03.png",
+      "current_source": "03.png"
+    },
+    {
+      "website_name": "shot04.png",
+      "current_source": "04.PNG"
+    },
+    {
+      "website_name": "shot05.png",
+      "current_source": "05.png"
+    },
+    {
+      "website_name": "shot06.png",
+      "current_source": "06.PNG"
+    },
+    {
+      "website_name": "shot07.png",
+      "current_source": "07.PNG"
+    },
+    {
+      "website_name": "shot08.png",
+      "current_source": "08.png"
+    },
+    {
+      "website_name": "shot09.png",
+      "current_source": "09.PNG"
+    },
+    {
+      "website_name": "shot10.png",
+      "current_source": "10.png"
+    }
+  ]
+}
