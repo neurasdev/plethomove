@@ -160,9 +160,10 @@ padding:18px;
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:30px;
 margin-top:24px;
+align-items:stretch;
 }
 
 .shot{
@@ -171,12 +172,29 @@ border:1px solid var(--line);
 border-radius:20px;
 box-shadow:var(--shadow);
 overflow:hidden;
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.shot-frame{
+width:100%;
+height:420px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,0.03);
+padding:16px;
 }
 
 .shot img{
+max-width:100%;
+max-height:100%;
 width:100%;
+height:100%;
 display:block;
 cursor:pointer;
+object-fit:contain;
 }
 
 .shot-label{
@@ -184,6 +202,10 @@ font-size:20px;
 color:#9ec3ff;
 text-align:center;
 padding:14px;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 @media(max-width:900px){
@@ -192,6 +214,15 @@ grid-template-columns:1fr;
 }
 .hero{
 grid-template-columns:1fr;
+}
+.shot-frame{
+height:380px;
+}
+}
+
+@media(max-width:600px){
+.shot-frame{
+height:320px;
 }
 }
 
@@ -263,7 +294,7 @@ padding:10px;
 <div class="wrap">
 
 <div class="topbar">
-<img src="icon_1024.png">
+<img src="icon_1024.png" alt="PlethoMove icon">
 <div class="brand">PlethoMove</div>
 </div>
 
@@ -345,52 +376,72 @@ PlethoMove is built for people who want a dependable way to move large amounts o
 <div class="gallery">
 
 <div class="shot">
-<img src="short01.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short01.png" class="gallery-img" alt="PlethoMove iOS Connect">
+</div>
 <div class="shot-label">PlethoMove(iOS) Connect</div>
 </div>
 
 <div class="shot">
-<img src="short02.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short02.png" class="gallery-img" alt="PlethoMove macOS Connect">
+</div>
 <div class="shot-label">PlethoMove(macOS) Connect</div>
 </div>
 
 <div class="shot">
-<img src="short03.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short03.png" class="gallery-img" alt="Select Photos and Videos">
+</div>
 <div class="shot-label">Select Photos and Videos</div>
 </div>
 
 <div class="shot">
-<img src="short04.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short04.png" class="gallery-img" alt="Selection Features">
+</div>
 <div class="shot-label">Selection Features</div>
 </div>
 
 <div class="shot">
-<img src="short05.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short05.png" class="gallery-img" alt="Mac Accept Transfer">
+</div>
 <div class="shot-label">Mac Accept Transfer</div>
 </div>
 
 <div class="shot">
-<img src="short06.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short06.png" class="gallery-img" alt="Transfer Progress Monitoring">
+</div>
 <div class="shot-label">Transfer Progress Monitoring</div>
 </div>
 
 <div class="shot">
-<img src="short07.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short07.png" class="gallery-img" alt="Mac Transfer Progress">
+</div>
 <div class="shot-label">Mac Transfer Progress</div>
 </div>
 
 <div class="shot">
-<img src="short08.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short08.png" class="gallery-img" alt="Transfer Complete">
+</div>
 <div class="shot-label">Transfer Complete</div>
 </div>
 
 <div class="shot">
-<img src="short09.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short09.png" class="gallery-img" alt="Files in Documents Folder">
+</div>
 <div class="shot-label">Files in Documents Folder</div>
 </div>
 
 <div class="shot">
-<img src="short10.png" class="gallery-img">
+<div class="shot-frame">
+<img src="short10.png" class="gallery-img" alt="Files Ready for Backup">
+</div>
 <div class="shot-label">Files Ready for Backup</div>
 </div>
 
@@ -420,7 +471,7 @@ Questions or feedback:
 
 <span class="close">&times;</span>
 <span class="nav prev">&#10094;</span>
-<img id="lightbox-img">
+<img id="lightbox-img" alt="Expanded screenshot">
 <span class="nav next">&#10095;</span>
 
 </div>
