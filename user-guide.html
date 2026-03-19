@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>PlethoMove — User Guide</title>
+<meta name="description" content="PlethoMove user guide."/>
+
+<style>
+:root{
+--bg:#0b1020;
+--card:rgba(255,255,255,0.06);
+--text:#eef2ff;
+--muted:#b7c0e0;
+--accent:#6ea8ff;
+--accent2:#9c7bff;
+--line:rgba(255,255,255,0.10);
+--shadow:0 18px 40px rgba(0,0,0,0.28);
+}
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif;
+background:linear-gradient(180deg,var(--bg) 0%,#111936 100%);
+color:var(--text);
+}
+
+.wrap{
+max-width:980px;
+margin:0 auto;
+padding:28px 20px 70px;
+}
+
+a{color:#a9c8ff;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.topbar{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:30px;
+}
+
+.topbar img{
+width:54px;
+height:54px;
+border-radius:14px;
+box-shadow:var(--shadow);
+background:white;
+}
+
+.brand{
+font-size:24px;
+font-weight:700;
+}
+
+.page-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+padding:28px;
+}
+
+h1{
+font-size:clamp(30px,5vw,48px);
+line-height:1.08;
+margin:0 0 20px;
+}
+
+p, li{
+font-size:18px;
+line-height:1.75;
+color:var(--muted);
+}
+
+ol{
+margin:16px 0 0 0;
+padding-left:24px;
+}
+
+.btn-row{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:24px;
+}
+
+.btn{
+display:inline-block;
+padding:13px 18px;
+border-radius:12px;
+font-weight:600;
+border:1px solid transparent;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:white;
+box-shadow:var(--shadow);
+}
+
+.btn-secondary{
+border-color:var(--line);
+color:var(--text);
+background:rgba(255,255,255,0.04);
+}
+
+.footer{
+margin-top:34px;
+padding-top:22px;
+border-top:1px solid var(--line);
+color:var(--muted);
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="topbar">
+<img src="icon_1024.png" alt="PlethoMove icon">
+<div class="brand">PlethoMove</div>
+</div>
+
+<div class="btn-row">
+<a class="btn btn-primary" href="index.html">Back to Home</a>
+<a class="btn btn-secondary" href="features.html">Features</a>
+<a class="btn btn-secondary" href="privacy.html">Privacy Policy</a>
+</div>
+
+<div class="page-card">
+
+<h1>User Guide</h1>
+
+<p>
+PlethoMove transfers files between nearby iPhone and Mac devices using Apple's MultipeerConnectivity framework.
+</p>
+
+<p>
+To test the app:
+</p>
+
+<ol>
+<li>Install PlethoMove(for iOS) on iPhone, and install PlethoMove(for MacOS) on macbook.</li>
+<li>Enable Wi-Fi and Bluetooth on both devices.</li>
+<li>Start Advertising and Browsing on both devices. (It should start automatically.)</li>
+<li>Connect the devices (Click the Blue "Connect" Button. Light up green means Connected).</li>
+<li>Select photos or videos on iPhone and send them to Mac, by clicking on the Blue "Pick from Recents. (Photos &amp; Videos)" button.</li>
+<li>Select Photos and Videos just like Apple Photos app, allows finger sliding select, with the only difference that PlethoMove shows a banner with Estimated future Export time and Transfer Time. This allows users to know how much future transfer might be so user can decide how many files to be selected. It also protects and not allowing further selecting of files if the files selected exceeds the remaining iPhone disk quota (a Red "Maximum allowable selection reached" will show on the banner). This is to prevent any future futile transfer.</li>
+<li>Click the Blue "Add" button on top right of iPhone to start the transfering.</li>
+<li>Transfer will start. On both iPhone and Macbook side, a progress bar will be shown to see how much percentage is transferred. Additionally, on iPhone side, the Remaining minutes to finished will be shown to user for good visibility.</li>
+<li>On macbook side, once the transfer is done, click on the "Files Transferred Here" button in Blue, it will take user to the folder that contains all the files that have been transferred. It usually is the Documents folder of the notebook.</li>
+<li>These files can then be moved to other desired folder, or, usb disk if plugged in to macbook, with the standard select-all and copy-and-move or copy-and-paste.</li>
+</ol>
+
+<p>
+The received files will appear in the Mac Documents folder and can be opened via the "Files Transferred Here" button.
+</p>
+
+<p>
+No login or account is required. The app works entirely on the local network and does not upload data to any server.
+</p>
+
+<p>
+Both devices must be on the same Wi-Fi network with Bluetooth enabled. PlethoMove uses the local network to discover nearby devices and transfer files between your iPhone and Mac.
+</p>
+
+</div>
+
+<div class="footer">
+© 2026 PlethoMove · <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a>
+</div>
+
+</div>
+
+</body>
+</html>
