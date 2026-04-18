@@ -158,7 +158,7 @@ box-shadow:var(--shadow);
 padding:18px;
 }
 
-/* VIDEO TABLE (Demo Videos + App Intro) */
+/* VIDEO */
 
 .video-table{
 display:grid;
@@ -301,49 +301,6 @@ color:var(--muted);
 font-size:14px;
 }
 
-/* LIGHTBOX */
-
-.lightbox{
-display:none;
-position:fixed;
-z-index:1000;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.92);
-}
-
-.lightbox img{
-display:block;
-margin:auto;
-max-width:90%;
-max-height:90%;
-margin-top:4%;
-}
-
-.close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
-color:white;
-cursor:pointer;
-}
-
-.nav{
-position:absolute;
-top:50%;
-font-size:60px;
-color:white;
-cursor:pointer;
-user-select:none;
-padding:10px;
-}
-
-.prev{left:20px;}
-.next{right:20px;}
-
 </style>
 </head>
 
@@ -352,17 +309,14 @@ padding:10px;
 <div class="wrap">
 
 <div class="topbar">
-<img src="icon_1024.png" alt="PlethoMove icon">
+<img src="icon_1024.png">
 <div class="brand">PlethoMove</div>
 </div>
 
 <section class="hero">
-
 <div>
 <div class="badge">PlethoMove for iPhone and Mac</div>
-
 <h1>Reliable large file transfer over the air.</h1>
-
 <p class="lead">
 PlethoMove helps you move large batches of photos and videos between iPhone and Mac with visibility, control, and peace of mind.
 </p>
@@ -377,33 +331,25 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 </div>
 
 <div class="hero-card">
-<video controls poster="short01.png">
-<source src="plethomove_preview_appstore.mp4" type="video/mp4">
+<video controls>
+<source src="plethomove_preview_appstore.mp4">
 </video>
 </div>
-
 </section>
 
-<!-- App Introduction (NOW SAME SIZE AS DEMO VIDEOS) -->
-
 <section class="section" id="preview">
-
 <h2>App Introduction</h2>
 
 <div class="video-card">
 <div class="video-frame">
-<video controls poster="short01.png">
-<source src="plethomove_preview_appstore.mp4" type="video/mp4">
+<video controls>
+<source src="plethomove_preview_appstore.mp4">
 </video>
 </div>
 </div>
-
 </section>
 
-<!-- Demo Videos -->
-
 <section class="section" id="demo-videos">
-
 <h2>Demo Videos</h2>
 
 <div class="video-table">
@@ -411,7 +357,7 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <div class="video-card">
 <div class="video-frame">
 <video controls>
-<source src="demo-for-iphone-side.mp4" type="video/mp4">
+<source src="demo-for-iphone-side.mp4">
 </video>
 </div>
 <div class="video-label">Demo for iPhone Side</div>
@@ -420,25 +366,30 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <div class="video-card">
 <div class="video-frame">
 <video controls>
-<source src="demo-for-macbook-side.mp4" type="video/mp4">
+<source src="demo-for-macbook-side.mp4">
 </video>
 </div>
 <div class="video-label">Demo for MacBook Side</div>
 </div>
 
 </div>
-
 </section>
 
-<!-- Rest unchanged -->
-
 <section class="section" id="screenshots">
-
 <h2>Screenshots</h2>
 
 <div class="gallery">
 
-<!-- (same as your original, unchanged) -->
+<div class="shot"><div class="shot-frame"><img src="short01.png"></div><div class="shot-label">PlethoMove(iOS) Connect</div></div>
+<div class="shot"><div class="shot-frame"><img src="short02.png"></div><div class="shot-label">PlethoMove(macOS) Connect</div></div>
+<div class="shot"><div class="shot-frame"><img src="short03.png"></div><div class="shot-label">Select Photos and Videos</div></div>
+<div class="shot"><div class="shot-frame"><img src="short04.png"></div><div class="shot-label">Selection Features</div></div>
+<div class="shot"><div class="shot-frame"><img src="short05.png"></div><div class="shot-label">Mac Accept Transfer</div></div>
+<div class="shot"><div class="shot-frame"><img src="short06.png"></div><div class="shot-label">Transfer Progress Monitoring</div></div>
+<div class="shot"><div class="shot-frame"><img src="short07.png"></div><div class="shot-label">Mac Transfer Progress</div></div>
+<div class="shot"><div class="shot-frame"><img src="short08.png"></div><div class="shot-label">Transfer Complete</div></div>
+<div class="shot"><div class="shot-frame"><img src="short09.png"></div><div class="shot-label">Files in Documents Folder</div></div>
+<div class="shot"><div class="shot-frame"><img src="short10.png"></div><div class="shot-label">Files Ready for Backup</div></div>
 
 </div>
 </section>
@@ -447,14 +398,13 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <h2>Support</h2>
 <div class="support-box">
 <p>
-Questions or feedback:
 <a href="mailto:neuras.dev@gmail.com">support@plethomove.app</a>
 </p>
 </div>
 </section>
 
 <div class="footer">
-© 2026 PlethoMove · <a href="privacy.html">Privacy Policy</a>
+© 2026 PlethoMove
 </div>
 
 </div>
