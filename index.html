@@ -158,8 +158,6 @@ box-shadow:var(--shadow);
 padding:18px;
 }
 
-/* VIDEO */
-
 .video-table{
 display:grid;
 grid-template-columns:repeat(2,minmax(0,1fr));
@@ -208,8 +206,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 }
-
-/* GALLERY */
 
 .gallery{
 display:grid;
@@ -301,6 +297,50 @@ color:var(--muted);
 font-size:14px;
 }
 
+/* LIGHTBOX */
+
+.lightbox{
+display:none;
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+}
+
+.lightbox img{
+display:block;
+margin:auto;
+max-width:90%;
+max-height:90%;
+margin-top:4%;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+.nav{
+position:absolute;
+top:50%;
+font-size:60px;
+color:white;
+cursor:pointer;
+user-select:none;
+padding:10px;
+transform:translateY(-50%);
+}
+
+.prev{left:20px;}
+.next{right:20px;}
+
 </style>
 </head>
 
@@ -309,7 +349,7 @@ font-size:14px;
 <div class="wrap">
 
 <div class="topbar">
-<img src="icon_1024.png">
+<img src="icon_1024.png" alt="PlethoMove icon">
 <div class="brand">PlethoMove</div>
 </div>
 
@@ -331,9 +371,39 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 </div>
 
 <div class="hero-card">
-<video controls>
-<source src="plethomove_preview_appstore.mp4">
+<video controls poster="short01.png">
+<source src="plethomove_preview_appstore.mp4" type="video/mp4">
 </video>
+</div>
+</section>
+
+<section class="section">
+<h2>Why PlethoMove</h2>
+
+<p>
+PlethoMove is built for people who want a dependable way to move large amounts of media between iPhone and Mac. It gives you visibility before starting, clear progress during transfer, and a smooth path for backing up photo and video libraries over your local network.
+</p>
+
+<div class="grid">
+<div class="card">
+<h3>Built for large transfers</h3>
+<p>Select many photos and videos at once and let long transfers run reliably.</p>
+</div>
+
+<div class="card">
+<h3>See time estimates early</h3>
+<p>View export time and transfer time before starting.</p>
+</div>
+
+<div class="card">
+<h3>Smart storage protection</h3>
+<p>Avoid failed transfers when iPhone storage is low.</p>
+</div>
+
+<div class="card">
+<h3>Perfect for backup</h3>
+<p>Back up your iPhone photo library to Mac easily.</p>
+</div>
 </div>
 </section>
 
@@ -342,8 +412,8 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 
 <div class="video-card">
 <div class="video-frame">
-<video controls>
-<source src="plethomove_preview_appstore.mp4">
+<video controls poster="short01.png">
+<source src="plethomove_preview_appstore.mp4" type="video/mp4">
 </video>
 </div>
 </div>
@@ -353,11 +423,10 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <h2>Demo Videos</h2>
 
 <div class="video-table">
-
 <div class="video-card">
 <div class="video-frame">
 <video controls>
-<source src="demo-for-iphone-side.mp4">
+<source src="demo-for-iphone-side.mp4" type="video/mp4">
 </video>
 </div>
 <div class="video-label">Demo for iPhone Side</div>
@@ -366,12 +435,11 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <div class="video-card">
 <div class="video-frame">
 <video controls>
-<source src="demo-for-macbook-side.mp4">
+<source src="demo-for-macbook-side.mp4" type="video/mp4">
 </video>
 </div>
 <div class="video-label">Demo for MacBook Side</div>
 </div>
-
 </div>
 </section>
 
@@ -380,16 +448,75 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 
 <div class="gallery">
 
-<div class="shot"><div class="shot-frame"><img src="short01.png"></div><div class="shot-label">PlethoMove(iOS) Connect</div></div>
-<div class="shot"><div class="shot-frame"><img src="short02.png"></div><div class="shot-label">PlethoMove(macOS) Connect</div></div>
-<div class="shot"><div class="shot-frame"><img src="short03.png"></div><div class="shot-label">Select Photos and Videos</div></div>
-<div class="shot"><div class="shot-frame"><img src="short04.png"></div><div class="shot-label">Selection Features</div></div>
-<div class="shot"><div class="shot-frame"><img src="short05.png"></div><div class="shot-label">Mac Accept Transfer</div></div>
-<div class="shot"><div class="shot-frame"><img src="short06.png"></div><div class="shot-label">Transfer Progress Monitoring</div></div>
-<div class="shot"><div class="shot-frame"><img src="short07.png"></div><div class="shot-label">Mac Transfer Progress</div></div>
-<div class="shot"><div class="shot-frame"><img src="short08.png"></div><div class="shot-label">Transfer Complete</div></div>
-<div class="shot"><div class="shot-frame"><img src="short09.png"></div><div class="shot-label">Files in Documents Folder</div></div>
-<div class="shot"><div class="shot-frame"><img src="short10.png"></div><div class="shot-label">Files Ready for Backup</div></div>
+<div class="shot">
+<div class="shot-frame">
+<img src="short01.png" class="gallery-img" alt="PlethoMove iOS Connect">
+</div>
+<div class="shot-label">PlethoMove(iOS) Connect</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short02.png" class="gallery-img" alt="PlethoMove macOS Connect">
+</div>
+<div class="shot-label">PlethoMove(macOS) Connect</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short03.png" class="gallery-img" alt="Select Photos and Videos">
+</div>
+<div class="shot-label">Select Photos and Videos</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short04.png" class="gallery-img" alt="Selection Features">
+</div>
+<div class="shot-label">Selection Features</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short05.png" class="gallery-img" alt="Mac Accept Transfer">
+</div>
+<div class="shot-label">Mac Accept Transfer</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short06.png" class="gallery-img" alt="Transfer Progress Monitoring">
+</div>
+<div class="shot-label">Transfer Progress Monitoring</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short07.png" class="gallery-img" alt="Mac Transfer Progress">
+</div>
+<div class="shot-label">Mac Transfer Progress</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short08.png" class="gallery-img" alt="Transfer Complete">
+</div>
+<div class="shot-label">Transfer Complete</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short09.png" class="gallery-img" alt="Files in Documents Folder">
+</div>
+<div class="shot-label">Files in Documents Folder</div>
+</div>
+
+<div class="shot">
+<div class="shot-frame">
+<img src="short10.png" class="gallery-img" alt="Files Ready for Backup">
+</div>
+<div class="shot-label">Files Ready for Backup</div>
+</div>
 
 </div>
 </section>
@@ -398,16 +525,80 @@ PlethoMove helps you move large batches of photos and videos between iPhone and 
 <h2>Support</h2>
 <div class="support-box">
 <p>
+Questions or feedback:
 <a href="mailto:neuras.dev@gmail.com">support@plethomove.app</a>
 </p>
 </div>
 </section>
 
 <div class="footer">
-© 2026 PlethoMove
+© 2026 PlethoMove · <a href="privacy.html">Privacy Policy</a>
 </div>
 
 </div>
+
+<div id="lightbox" class="lightbox">
+<span class="close">&times;</span>
+<span class="nav prev">&#10094;</span>
+<img id="lightbox-img" alt="Expanded screenshot">
+<span class="nav next">&#10095;</span>
+</div>
+
+<script>
+const images=document.querySelectorAll(".gallery-img")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+let current=0
+
+images.forEach((img,i)=>{
+img.onclick=()=>{
+current=i
+show()
+}
+})
+
+function show(){
+lightbox.style.display="block"
+lightboxImg.src=images[current].src
+}
+
+document.querySelector(".close").onclick=()=>{
+lightbox.style.display="none"
+}
+
+document.querySelector(".prev").onclick=(e)=>{
+e.stopPropagation()
+current=(current-1+images.length)%images.length
+show()
+}
+
+document.querySelector(".next").onclick=(e)=>{
+e.stopPropagation()
+current=(current+1)%images.length
+show()
+}
+
+lightbox.onclick=(e)=>{
+if(e.target===lightbox){
+lightbox.style.display="none"
+}
+}
+
+document.addEventListener("keydown",e=>{
+if(lightbox.style.display==="block"){
+if(e.key==="Escape") lightbox.style.display="none"
+if(e.key==="ArrowLeft"){
+current=(current-1+images.length)%images.length
+show()
+}
+if(e.key==="ArrowRight"){
+current=(current+1)%images.length
+show()
+}
+}
+})
+</script>
 
 </body>
 </html>
