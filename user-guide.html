@@ -67,19 +67,25 @@ padding:28px;
 
 h1{
 font-size:clamp(30px,5vw,48px);
-line-height:1.08;
 margin:0 0 20px;
 }
 
+h2{
+margin-top:28px;
+margin-bottom:10px;
+font-size:20px;
+color:var(--text);
+}
+
 p, li{
-font-size:18px;
-line-height:1.75;
+font-size:17px;
+line-height:1.7;
 color:var(--muted);
 }
 
 ol{
-margin:16px 0 0 0;
-padding-left:24px;
+margin:10px 0 0 0;
+padding-left:22px;
 }
 
 .btn-row{
@@ -146,44 +152,49 @@ border-radius:6px;
 <h1>User Guide</h1>
 
 <p>
-PlethoMove transfers files between nearby iPhone and Mac devices using Apple's MultipeerConnectivity framework.
+PlethoMove transfers files directly between nearby iPhone and Mac devices using Apple’s MultipeerConnectivity framework.
 </p>
 
-<p>
-To use the app:
-</p>
+<h2>Setup & Connection</h2>
 
 <ol>
-<li>Install PlethoMove (iOS) on your iPhone and PlethoMove (macOS) on your MacBook. Then open the app on both devices.</li>
+<li>Install PlethoMove on both your iPhone (iOS) and MacBook (macOS), then open the app on both devices.</li>
+<li>Turn on Wi-Fi and Bluetooth on both devices.</li>
+<li>Advertising and browsing start automatically when both apps are open.</li>
+<li>Tap the blue "Connect" button. When it turns green, the devices are connected.</li>
+</ol>
 
-<li>Ensure Wi-Fi and Bluetooth are enabled (allowed) on both devices.</li>
+<h2>Select & Send Files</h2>
 
-<li>Advertising and browsing will start automatically once both apps are open on both devices.</li>
-
-<li>Connect the devices by clicking the blue "Connect" button. When the indicator turns green, the devices are successfully connected.</li>
-
-<li>Select photos or videos on your iPhone by tapping the blue "Pick from Recents (Photos &amp; Videos)" button, then choose the files you want to send.</li>
-
-<li>You can select photos and videos just like in the Apple Photos app, including swipe selection. PlethoMove also displays a banner showing estimated export time and transfer time. This helps you decide how many files to select. If your selection exceeds the available iPhone storage limit, a red "Maximum allowable selection reached" warning will appear, preventing further selection and avoiding failed transfers.</li>
-
-<li>Tap the blue "Add" button at the top right of the iPhone screen to begin transferring.</li>
-
-<li>On the MacBook, a prompt will appear asking whether to accept the transfer. Click "Accept" to proceed.</li>
+<ol start="5">
+<li>On iPhone, tap "Pick from Recents (Photos &amp; Videos)" and select the files to send.</li>
 
 <li>
-The transfer will begin. A progress bar will appear on both iPhone and MacBook, showing the transfer percentage. On iPhone, the estimated remaining time will also be displayed for better visibility. When the progress reaches 100%, the transfer is complete, and the blue progress bar will disappear.
+Select files just like in the Photos app (including swipe selection). A banner shows estimated export and transfer time to help you plan. If you exceed available storage, a red "Maximum allowable selection reached" message will appear to prevent failed transfers.
 </li>
 
+<li>Tap the blue "Add" button to begin.</li>
+
+<li>On MacBook, click "Accept" when prompted.</li>
+
 <li>
-On the MacBook, once the transfer is complete, click the blue "Files Transferred Here" button. This will open the folder containing all transferred files. These are your final files.
+Transfer begins immediately. A progress bar appears on both devices, with remaining time shown on iPhone. When it reaches 100% and disappears, the transfer is complete.
+</li>
+</ol>
+
+<h2>Access & Move Files</h2>
+
+<ol start="10">
+<li>
+On MacBook, click the blue "Files Transferred Here" button to open your transferred files.
 <br><br>
 
-Alternatively, you can access the same PlethoMove sandbox location manually:
+Manual access:
 <br>
-In Finder, go to the top menu <strong>Go</strong>, hold the <strong>Option</strong> key to reveal <strong>Library</strong>, then click <strong>Library</strong> → <strong>Containers</strong> → <strong>PlethoMove</strong> → <strong>Data</strong> → <strong>Documents</strong>.
+Finder → <strong>Go</strong> → hold <strong>Option</strong> → <strong>Library</strong> → <strong>Containers</strong> → <strong>PlethoMove</strong> → <strong>Data</strong> → <strong>Documents</strong>
 <br><br>
 
-Or via Terminal:
+Terminal:
 <br>
 <code>cd ~/Library/Containers/dev.neuras.plethomove/Data/Documents</code>
 <br><br>
@@ -193,40 +204,40 @@ Full path:
 <code>/Users/(your_user_name)/Library/Containers/dev.neuras.plethomove/Data/Documents</code>
 <br><br>
 
-<strong>Important:</strong> Move all final files to a desired location outside of this PlethoMove sandbox Documents folder. The "Clean Up Temporary Files" function will remove all contents inside this sandbox, including these files.
+<strong>Important:</strong> Move your files out of this folder. The "Clean Up Temporary Files" function will delete everything here.
 </li>
 
 <li>
-You can now move the files to another folder or an external USB drive using standard select-all and drag/copy operations.
+Move files to your desired folder or external USB drive.
 <br><br>
 
 Example:
 <br>
-Create a folder on your desktop (e.g., <strong>Trip_LakeTahoe</strong>). Then click "Files Transferred Here" (see previous step). In Finder, go to <strong>Edit</strong> → <strong>Select All</strong> to highlight all files.
+Create a folder such as <strong>Trip_LakeTahoe</strong> on your desktop. Open "Files Transferred Here", then use <strong>Edit → Select All</strong>.
 <br><br>
 
-Drag all selected files into your new folder (<strong>Trip_LakeTahoe</strong>). This moves them cleanly out of the PlethoMove sandbox into your desired location. You can then back up or copy this folder to external storage.
+Drag all files into your new folder. This safely moves them out of the PlethoMove sandbox. You can then back them up or copy them elsewhere.
 </li>
 
 <li>
-After confirming all files have been successfully transferred and saved (for example, in the <strong>Trip_LakeTahoe</strong> folder), you can open the Photos app on your iPhone and delete the original files to free up storage.
+After confirming your files are safely stored (e.g., in <strong>Trip_LakeTahoe</strong>), delete the originals from your iPhone Photos app to free up space.
 </li>
-
 </ol>
 
+<h2>Notes</h2>
+
 <p>
-No login or account is required. The app operates entirely on the local network and does not upload data to any server.
+No login or account is required. All transfers stay on your local network—nothing is uploaded to any server.
 </p>
 
 <p>
-Both devices must be connected to the same Wi-Fi network with Bluetooth enabled. PlethoMove uses the local network to discover nearby devices and transfer files.
+Both devices must be on the same Wi-Fi network with Bluetooth enabled.
 </p>
 
-<p></p>  
+<h2>Tips & Troubleshooting</h2>
 
 <p>
-* Important tip (power saving):
-To avoid interruptions during long transfers, consider disabling auto-lock:
+* Power saving: Disable auto-lock to avoid interruptions during long transfers.
 </p>
 
 <p>
@@ -238,11 +249,11 @@ MacBook: System Settings → Battery → Options → Enable “Prevent automatic
 </p>
 
 <p>
-* The current version of the app may be interrupted if you switch away from PlethoMove—
+* The current version may pause if you leave the PlethoMove app—
 </p>
 
 <p>
-for example, by picking up your phone or answering calls in communication apps like WhatsApp or LINE.
+for example, when answering calls or switching to apps like WhatsApp or LINE.
 </p>
 
 <p>
@@ -250,7 +261,7 @@ for example, by picking up your phone or answering calls in communication apps l
 </p>
 
 <p>
-If the issue persists, uninstall the app and reinstall it.
+If the issue continues, uninstall and reinstall the app.
 </p>
 
 </div>
